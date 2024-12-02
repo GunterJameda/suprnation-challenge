@@ -1,0 +1,19 @@
+<h1 *ngIf="!expression">No valid expression provided yet!</h1>
+<h1 *ngIf="expression">Last evaluated expression: {{expression}}={{value}}</h1>
+
+<div>
+  <input class="input-form" [formControl]="input">
+
+  <span class="error-message" *ngIf="errorMessage">ERROR: {{errorMessage}}</span>
+</div>
+
+<div>
+  <h4>History Expressions</h4>
+  @for (exp of historyExpressions; track exp.id) {
+  <div>
+    <span>{{ exp.expression }}={{exp.value}}</span>
+  </div>
+  } @empty {
+  <p>No results yet!</p>
+  }
+</div>
